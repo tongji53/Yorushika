@@ -15,21 +15,21 @@ class ArtsController < ApplicationController
   def create
     @art = Art.new(art_params)
     if @art.save
-      redirect_to arts_path
+      redirect_to arts_path, notice: "投稿しました"
     end
   end
 
   def edit
   end
 
-  def updata
+  def update
     @art.update!(art_params)
-    redirect_to art
+    redirect_to @art, notice: "変更しました"
   end
 
   def destroy
     @art.destroy
-    redirect_to root_path
+    redirect_to art_path, alert: "削除しました"
   end
 
   private
