@@ -2,11 +2,11 @@
 ja:
   activerecord:
     models:
-        post: メッセージ
-      attributes:
-        post:
-          title: タイトル
-          content: 内容
+      art: メッセージ
+    attributes:
+      art:
+        title: タイトル
+        content: 歌詞
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
