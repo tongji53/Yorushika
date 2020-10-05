@@ -3,6 +3,10 @@ class ArtsController < ApplicationController
     @arts = Art.order(id: :asc)
   end
 
+  def show
+    @art = Art.find(params[:id])
+  end
+
   def new
     @art = Art.new
   end
