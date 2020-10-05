@@ -29,7 +29,7 @@ class ArtsController < ApplicationController
 
   def destroy
     @art.destroy
-    redirect_to art_path, alert: "削除しました"
+    redirect_to arts_path, alert: "削除しました"
   end
 
   private
