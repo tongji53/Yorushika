@@ -1,4 +1,9 @@
-<h1>詳細画面</h1>
-
-  <p>タイトル <%= @art.title %></p>
-  <p>歌詞 <%= @art.content %></p>
+<h1 class="text-center">詳細表示</h1>
+<section class="card border-dark mt-5">
+  <div class="card-header">
+    <h4><%= @art.title %></h4>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= simple_format(h @art.content) %></p>
+  </div>
+</section>

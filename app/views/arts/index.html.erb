@@ -1,19 +1,27 @@
-<h1>n-buna・ヨルシカ 楽曲一覧</h1>
-<table>
-  <thead>
+<h1 class="text-center">投稿一覧</h1>
+<table class="table table-bordered table-striped mt-4">
+  <thead class="table-primary">
     <tr>
-      <th scope="col">タイトル</th>
+      <th scope="col">No.</th>
+      <th scope="col" class="w-100">タイトル</th>
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
-    <% @arts.each do |art| %>
+    <% @arts.each.with_index(1) do |art, i| %>
       <tr>
-        <td><%= art.title %></td>
-        <td>
-          <%= link_to "詳細", art %>
-          <%= link_to "編集", edit_art_path(art) %>
-          <%= link_to "削除", art, method: :delete, data: {confirm: "削除しますか？"} %>
+        <th scope="row" class="text-right"><%= i %></th>
+        <td class="break-word"><%= art.title %></td>
+        <td class="text-nowrap">
+          <%= link_to art, class: "btn btn-primary" do %>
+            <i class="fas fa-envelope-open-text"></i> <span class="d-none d-md-inline"> 詳細</span>
+          <% end %>
+          <%= link_to edit_art_path(art), class: "btn btn-success" do %>
+            <i class="far fa-edit"></i> <span class="d-none d-md-inline"> 編集</span>
+          <% end %>
+          <%= link_to art, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-danger" do %>
+            <i class="far fa-trash-alt"></i> <span class="d-none d-md-inline"> 削除</span>
+          <% end %>
         </td>
       </tr>
     <% end %>

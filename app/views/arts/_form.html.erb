@@ -1,12 +1,14 @@
 <%= render "layouts/error_messages" %>
-<%= form_with model: @art, local: true do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+<%= form_with model: @art, local: true do |form| %>
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :content %>
+    <%= form.text_area :content, class: "form-control", rows: 10 %>
   </div>
   <div>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+    <%= form.submit button_value, class: "btn btn-primary btn-block" %>
   </div>
-  <div><%= f.submit button_value %></div>
 <% end %>

@@ -1,9 +1,8 @@
-<% if @art.errors.any?%>
-  <div>
-    <ul>
-      <% @art.errors.full_messages.each do |msg| %>
-        <li><span style='color: red;'><%= msg %></span></li>
-      <% end %>
-    </ul>
-  </div>
+<% if @art.errors.any? %>
+  <% @art.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger" role="alert">
+      <a href="#" class="close" data-dismiss="alert">×</a>
+      <%= msg %>
+    </div>
+  <% end %>
 <% end %>
