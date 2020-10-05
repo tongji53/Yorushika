@@ -4,13 +4,12 @@
     <title>Yorushika</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= link_to "投稿一覧", arts_path %> <%= link_to "新規登録", new_art_path %>
+    <%= render "layouts/header" %>
+    <%= render "layouts/flash" %>
     <%= yield %>
   </body>
 </html>
