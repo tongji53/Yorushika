@@ -1,1 +1,21 @@
 <h1>n-buna・ヨルシカ 楽曲一覧</h1>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">タイトル</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @arts.each do |art| %>
+      <tr>
+        <td><%= art.title %></td>
+        <td>
+          <%= link_to "詳細", art %>
+          <%= link_to "編集", edit_art_path(art) %>
+          <%= link_to "削除", art, method: :delete, data: {confirm: "削除しますか？"} %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

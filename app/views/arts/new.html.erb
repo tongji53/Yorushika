@@ -1,0 +1,15 @@
+<h1>新規登録</h1>
+<%= form_with model: @art, local: true do |f| %>
+  <div>
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :content, "歌詞" %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div><%= f.submit "送信" %></div>
+
+<% end %>
