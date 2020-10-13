@@ -1,16 +1,20 @@
-<h1 class="text-center">投稿一覧</h1>
+<%= search_form_for @q do |f| %>
+  <%= f.label :title_cont, "タイトル" %>
+  <%= f.search_field :title_cont %>
+  <%= f.submit "検索" %>
+<% end %>
+
+<h1 class="text-center">楽曲一覧</h1>
 <table class="table table-bordered table-striped mt-4">
   <thead class="table-primary">
     <tr>
-      <th scope="col">No.</th>
       <th scope="col" class="w-100">タイトル</th>
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
-    <% @arts.each.with_index(1) do |art, i| %>
+    <% @arts.each do |art| %>
       <tr>
-        <th scope="row" class="text-right"><%= i %></th>
         <td class="break-word"><%= art.title %></td>
         <td class="text-nowrap">
           <%= link_to art, class: "btn btn-primary" do %>
@@ -27,3 +31,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @arts %>

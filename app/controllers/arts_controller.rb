@@ -1,8 +1,11 @@
 class ArtsController < ApplicationController
+  PER_PAGE = 20
   before_action :set_art, only: %i[show edit update destroy]
 
   def index
+    @q = Art.ransack(params[:q])
     @arts = Art.order(id: :asc)
+    @arts = @q.result.page(params[:page]).per(PER_PAGE)
   end
 
   def show
